@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etxeko lanak</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🏠 Etxeko lanak</h1>
+    <p id="todayText"></p>
+</header>
+
+<main>
+
+    <!-- ERABILTZAILEA -->
+    <section class="card">
+        <h2>Nor zara?</h2>
+
+        <div class="users">
+            <button type="button" class="userButton" data-user="JD">JD</button>
+            <button type="button" class="userButton" data-user="MD">MD</button>
+            <button type="button" class="userButton" data-user="ID">ID</button>
+            <button type="button" class="userButton" data-user="OB">OB</button>
+        </div>
+
+        <p id="selectedUser" class="info">
+            Lehenengo aukeratu erabiltzailea.
+        </p>
+    </section>
+
+    <!-- NABIGAZIOA -->
+    <nav class="tabs">
+        <button type="button" class="tabButton active" data-tab="today">
+            📋 Gaur
+        </button>
+
+        <button type="button" class="tabButton" data-tab="calendar">
+            📅 Egutegia
+        </button>
+
+        <button type="button" class="tabButton" data-tab="admin">
+            🔧 Administrazioa
+        </button>
+    </nav>
+
+    <!-- GAUR -->
+    <section id="today" class="tabContent">
+        <div class="card">
+            <h2>Gaurko lanak</h2>
+            <div id="tasks">
+                <p>Lehenengo aukeratu erabiltzailea.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EGUTEGIA -->
+    <section id="calendar" class="tabContent hidden">
+
+        <div class="card">
+            <div class="calendarHeader">
+                <button type="button" id="previousMonth">‹</button>
+                <h2 id="calendarTitle"></h2>
+                <button type="button" id="nextMonth">›</button>
+            </div>
+
+            <div id="calendar"></div>
+        </div>
+
+        <div id="calendarDetails" class="card">
+            <p>Aukeratu egun bat.</p>
+        </div>
+
+    </section>
+
+    <!-- ADMIN -->
+    <section id="admin" class="tabContent hidden">
+
+        <div class="card">
+
+            <h2>🔧 Administrazioa</h2>
+
+            <label for="taskSelect">Lana</label>
+            <select id="taskSelect"></select>
+
+            <label for="assignmentType">Esleipen mota</label>
+
+            <select id="assignmentType">
+                <option value="single">Pertsona bati</option>
+                <option value="multiple">Hainbat pertsonari</option>
+                <option value="rotation">Txandaka</option>
+            </select>
+
+            <!-- PERTSONA BAT -->
+            <div id="singleAssignment">
+
+                <label for="singleUser">Pertsona</label>
+
+                <select id="singleUser">
+                    <option value="">-- Aukeratu --</option>
+                    <option value="JD">JD</option>
+                    <option value="MD">MD</option>
+                    <option value="ID">ID</option>
+                    <option value="OB">OB</option>
+                </select>
+
+            </div>
+
+            <!-- HAINBAT -->
+            <div id="multipleAssignment" class="hidden">
+
+                <p>Hautatu pertsonak:</p>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="memberCheck" value="JD">
+                    JD
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="memberCheck" value="MD">
+                    MD
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="memberCheck" value="ID">
+                    ID
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="memberCheck" value="OB">
+                    OB
+                </label>
+
+            </div>
+
+            <!-- TXANDA -->
+            <div id="rotationAssignment" class="hidden">
+
+                <p>Txandan parte hartuko dutenak:</p>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="rotationCheck" value="JD">
+                    JD
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="rotationCheck" value="MD">
+                    MD
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="rotationCheck" value="ID">
+                    ID
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="rotationCheck" value="OB">
+                    OB
+                </label>
+
+            </div>
+
+            <!-- MAIZTASUNA -->
+            <label for="frequency">Maiztasuna</label>
+
+            <select id="frequency">
+                <option value="">-- Aukeratu --</option>
+                <option value="daily">Egunero</option>
+                <option value="weekly">Astean behin</option>
+                <option value="specific">Egun jakinetan</option>
+                <option value="once">Behin bakarrik</option>
+            </select>
+
+            <!-- ASTERO -->
+            <div id="weeklyOptions" class="hidden">
+
+                <label for="weeklyDay">Asteko eguna</label>
+
+                <select id="weeklyDay">
+                    <option value="">-- Aukeratu --</option>
+                    <option value="1">Astelehena</option>
+                    <option value="2">Asteartea</option>
+                    <option value="3">Asteazkena</option>
+                    <option value="4">Osteguna</option>
+                    <option value="5">Ostirala</option>
+                    <option value="6">Larunbata</option>
+                    <option value="0">Igandea</option>
+                </select>
+
+            </div>
+
+            <!-- EGUN JAKINAK -->
+            <div id="specificOptions" class="hidden">
+
+                <p>Egunak:</p>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="specificCheck" value="1">
+                    Astelehena
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="specificCheck" value="2">
+                    Asteartea
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="specificCheck" value="3">
+                    Asteazkena
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="specificCheck" value="4">
+                    Osteguna
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="specificCheck" value="5">
+                    Ostirala
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="specificCheck" value="6">
+                    Larunbata
+                </label>
+
+                <label class="checkRow">
+                    <input type="checkbox" class="specificCheck" value="0">
+                    Igandea
+                </label>
+
+            </div>
+
+            <!-- BEHIN -->
+            <div id="onceOptions" class="hidden">
+
+                <label for="onceDate">Data</label>
+                <input type="date" id="onceDate">
+
+            </div>
+
+            <button type="button" id="saveAssignment" class="primaryButton">
+                💾 Gorde esleipena
+            </button>
+
+            <p id="adminMessage" class="message"></p>
+
+        </div>
+
+        <!-- ESLEIPENAK -->
+        <div class="card">
+
+            <h2>Uneko esleipenak</h2>
+
+            <p class="info">
+                Hautatu borratu nahi dituzun esleipenak.
+            </p>
+
+            <div id="assignmentList"></div>
+
+            <button
+                type="button"
+                id="removeSelectedAssignments"
+                class="dangerButton"
+            >
+                🗑️ Aukeratutako esleipenak borratu
+            </button>
+
+            <button
+                type="button"
+                id="removeAllAssignments"
+                class="dangerButton"
+            >
+                🗑️ Zeregin honen esleipen guztiak borratu
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f5f7;
+    color: #222;
+}
+
+header {
+    background: white;
+    padding: 20px 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+header p {
+    margin: 0;
+    color: #666;
+}
+
+main {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0 16px 40px;
+}
+
+.card {
+    background: white;
+    padding: 18px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.users {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+button,
+select,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.userButton {
+    padding: 16px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
+}
+
+.userButton.selected {
+    background: #e7efff;
+    border-color: #6b8cff;
+}
+
+.info {
+    font-weight: bold;
+}
+
+.tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.tabButton {
+    padding: 12px 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+}
+
+.tabButton.active {
+    background: #e7efff;
+    border-color: #6b8cff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+select,
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    background: white;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.checkRow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: normal;
+    padding: 7px 0;
+}
+
+.checkRow input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.task {
+    padding: 14px;
+    margin-bottom: 9px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.taskRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.taskRow input {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+}
+
+.taskDone {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.primaryButton,
+.dangerButton {
+    width: 100%;
+    padding: 14px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.primaryButton {
+    background: #315efb;
+    color: white;
+}
+
+.dangerButton {
+    background: #eee;
+    color: #a00000;
+}
+
+.message {
+    min-height: 20px;
+    font-weight: bold;
+}
+
+.assignmentItem {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 9px;
+}
+
+.assignmentItem.selected {
+    background: #e7efff;
+    border-color: #6b8cff;
+}
+
+.assignmentSelectRow {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.assignmentSelectRow input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+}
+
+.assignmentText {
+    flex: 1;
+}
+
+.assignmentItem strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.assignmentMeta {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.calendarHeader {
+    display: grid;
+    grid-template-columns: 45px 1fr 45px;
+    align-items: center;
+    text-align: center;
+}
+
+.calendarHeader h2 {
+    margin: 0;
+}
+
+.calendarHeader button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendarDayName {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 2px;
+}
+
+.calendarDay {
+    min-height: 68px;
+    padding: 5px;
+    border: 1px solid #eee;
+    border-radius: 7px;
+    background: #fafafa;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.calendarDay.empty {
+    background: transparent;
+    border: 0;
+    cursor: default;
+}
+
+.calendarDay.today {
+    border: 2px solid #315efb;
+}
+
+.calendarDay.selected {
+    box-shadow: inset 0 0 0 2px #6b8cff;
+}
+
+.calendarNumber {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.calendarTask {
+    font-size: 10px;
+    margin-top: 3px;
+    padding: 3px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.calendarTask.todo {
+    background: #ffdede;
+    color: #900;
+    border-left: 3px solid #d00000;
+}
+
+.calendarTask.done {
+    background: #dcf5df;
+    color: #176b2c;
+    border-left: 3px solid #24913e;
+}
+
+.calendarDetailTask {
+    padding: 11px;
+    margin-bottom: 8px;
+    border-radius: 9px;
+    border: 1px solid #eee;
+}
+
+.calendarDetailTask.todo {
+    background: #fff0f0;
+    border-left: 5px solid #d00000;
+}
+
+.calendarDetailTask.done {
+    background: #edf9ef;
+    border-left: 5px solid #24913e;
+}
+
+.calendarDetailTask strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.calendarDetailStatus {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.noTasks {
+    color: #666;
+}
+
+@media (max-width: 450px) {
+    main {
+        margin-top: 10px;
+    }
+
+    .calendarDay {
+        min-height: 58px;
+        padding: 4px;
+    }
+
+    .calendarTask {
+        font-size: 9px;
+    }
+}
