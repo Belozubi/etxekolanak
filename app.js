@@ -45,7 +45,8 @@ var currentUser = null;
 
 var calendarDate = new Date();
 var selectedCalendarDate = null;
-var calendarMonth = new Date();
+//var calendarMonth = new Date();
+
 
 /* =========================================================
    HASIERA
@@ -83,10 +84,11 @@ function setupRealtime() {
                 table: "Zereginak"
             },
             async function () {
+
                 await new Promise(function (resolve) {
                     setTimeout(resolve, 500);
                 });
-                
+
                 await loadData();
                 renderToday();
                 renderCalendar();
@@ -1754,11 +1756,11 @@ function renderCalendar() {
         let cell =
             document.createElement("div");
 
-        cell.setAttribute(
+       /* cell.setAttribute(
             "data-date",
             key
-        ); 
-        
+        ); */
+
         cell.className =
             "calendarDayName";
 
@@ -1828,12 +1830,12 @@ function renderCalendar() {
         let cell =
             document.createElement("div");
 
-        /*cell.setAttribute(
+        cell.setAttribute(
             "data-date",
              key
-        ); */
-
-        cell.className =
+        );
+        
+            cell.className =
             "calendarDay";
 
         if (key === today) {
@@ -1887,26 +1889,13 @@ function renderCalendar() {
             cell.appendChild(task);
         });
 
-        cell.addEventListener(
+       cell.addEventListener(
             "click",
-            function () {
+             function () {
 
-                 var oldSelected =
-                     document.querySelector(
-                      ".calendarDay.selected"
-                    );
+                selectedCalendarDate = key;
 
-                if (oldSelected) {
-                     oldSelected.classList.remove(
-                        "selected"
-                 );
-                }
-
-                selectedCalendarDate =
-                     cell.getAttribute("data-date");
-
-                cell.classList.add("selected");
-
+                renderCalendar();
                 renderCalendarDetails();
             }
         );
