@@ -1883,7 +1883,7 @@ function renderCalendar() {
 
                 selectedCalendarDate = key;
 
-                renderCalendar();
+                //renderCalendar();
                 renderCalendarDetails();
             }
         );
