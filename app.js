@@ -482,12 +482,31 @@ async function openTab(tab) {
     var section =
         document.getElementById(tab);
 
-    if (section && tab !== "admin") {
-        section.classList.remove("hidden");
+    if (tab === "admin") {
+
+        var password = prompt(
+            "Sartu administraziorako gakoa:"
+        );
+
+        if (password !== "etxea2026") {
+            alert("Gako okerra.");
+            return;
+        }
+
+        if (section) {
+            section.classList.remove("hidden");
+        }
+
+        renderTaskSelect();
+        renderAssignmentType();
+        renderFrequency();
+        renderAssignments();
+
+        return;
     }
 
-    if (tab === "admin") {
-    section.classList.remove("hidden");
+    if (section) {
+        section.classList.remove("hidden");
     }
 
     if (tab === "today") {
@@ -496,30 +515,8 @@ async function openTab(tab) {
 
     if (tab === "calendar") {
 
-        /*
-         * Egutegia irekitzean:
-         * datuak berriro kargatu eta egutegia
-         * osorik berreraiki.
-         */
-        
         await refreshCalendar();
-    }
 
-    if (tab === "admin") {
-
-        var password = prompt(
-        "Sartu administraziorako gakoa:"
-         );
-
-         if (password !== "etxea2026") {
-             alert("Gako okerra.");
-             return;
-         }
-
-        renderTaskSelect();
-        renderAssignmentType();
-        renderFrequency();
-        renderAssignments();
     }
 }
 
