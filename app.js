@@ -482,7 +482,7 @@ async function openTab(tab) {
     var section =
         document.getElementById(tab);
 
-    if (section) {
+    if (section && tab !== "admin") {
         section.classList.remove("hidden");
     }
 
