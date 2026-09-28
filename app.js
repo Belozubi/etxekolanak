@@ -457,6 +457,18 @@ async function openTab(tab) {
         return;
     }
 
+    if (tab === "admin") {
+
+        var password = prompt(
+            "Sartu administraziorako gakoa:"
+        );
+
+        if (password !== "etxea2026") {
+            alert("Gako okerra.");
+            return;
+        }
+    }
+
     var buttons =
         document.querySelectorAll(".tabButton");
 
@@ -482,29 +494,6 @@ async function openTab(tab) {
     var section =
         document.getElementById(tab);
 
-    if (tab === "admin") {
-
-        var password = prompt(
-            "Sartu administraziorako gakoa:"
-        );
-
-        if (password !== "etxea2026") {
-            alert("Gako okerra.");
-            return;
-        }
-
-        if (section) {
-            section.classList.remove("hidden");
-        }
-
-        renderTaskSelect();
-        renderAssignmentType();
-        renderFrequency();
-        renderAssignments();
-
-        return;
-    }
-
     if (section) {
         section.classList.remove("hidden");
     }
@@ -514,12 +503,16 @@ async function openTab(tab) {
     }
 
     if (tab === "calendar") {
-
         await refreshCalendar();
+    }
 
+    if (tab === "admin") {
+        renderTaskSelect();
+        renderAssignmentType();
+        renderFrequency();
+        renderAssignments();
     }
 }
-
 
 /* =========================================================
    ADMINISTRAZIOA
