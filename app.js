@@ -45,7 +45,7 @@ var currentUser = null;
 
 var calendarDate = new Date();
 var selectedCalendarDate = null;
-
+var calendarMonth = new Date();
 
 /* =========================================================
    HASIERA
