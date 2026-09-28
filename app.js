@@ -1886,10 +1886,22 @@ function renderCalendar() {
             "click",
             function () {
 
-                selectedCalendarDate = 
-                    cell.getAttribute("data-date");
+                 var oldSelected =
+                     document.querySelector(
+                      ".calendarDay.selected"
+                    );
 
-                renderCalendar();
+                if (oldSelected) {
+                     oldSelected.classList.remove(
+                        "selected"
+                 );
+                }
+
+                selectedCalendarDate =
+                     cell.getAttribute("data-date");
+
+                cell.classList.add("selected");
+
                 renderCalendarDetails();
             }
         );
