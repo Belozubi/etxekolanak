@@ -1756,11 +1756,6 @@ function renderCalendar() {
         let cell =
             document.createElement("div");
 
-       /* cell.setAttribute(
-            "data-date",
-            key
-        ); */
-
         cell.className =
             "calendarDayName";
 
