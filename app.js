@@ -486,6 +486,10 @@ async function openTab(tab) {
         section.classList.remove("hidden");
     }
 
+    if (tab === "admin") {
+    section.classList.remove("hidden");
+    }
+
     if (tab === "today") {
         renderToday();
     }
