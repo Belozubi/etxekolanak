@@ -1751,7 +1751,7 @@ function renderCalendar() {
 
     names.forEach(function (name) {
 
-        var cell =
+        let cell =
             document.createElement("div");
 
         cell.setAttribute(
@@ -1822,10 +1822,10 @@ function renderCalendar() {
                 day
             );
 
-        var key =
+        let key =
             dateKey(date);
 
-        var cell =
+        let cell =
             document.createElement("div");
 
         cell.className =
