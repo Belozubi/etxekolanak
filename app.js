@@ -1754,10 +1754,10 @@ function renderCalendar() {
         let cell =
             document.createElement("div");
 
-        /*cell.setAttribute(
+        cell.setAttribute(
             "data-date",
             key
-        ); */
+        ); 
         
         cell.className =
             "calendarDayName";
@@ -1828,10 +1828,10 @@ function renderCalendar() {
         let cell =
             document.createElement("div");
 
-        cell.setAttribute(
+        /*cell.setAttribute(
             "data-date",
              key
-        );
+        ); */
 
         cell.className =
             "calendarDay";
