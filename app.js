@@ -502,6 +502,16 @@ async function openTab(tab) {
     }
 
     if (tab === "admin") {
+
+        var password = prompt(
+        "Sartu administraziorako gakoa:"
+         );
+
+         if (password !== "etxea2026") {
+             alert("Gako okerra.");
+             return;
+         }
+
         renderTaskSelect();
         renderAssignmentType();
         renderFrequency();
