@@ -1881,7 +1881,8 @@ function renderCalendar() {
             "click",
             function () {
 
-                selectedCalendarDate = key;
+                selectedCalendarDate = 
+                    cell.getAttribute("data-date");
 
                 //renderCalendar();
                 renderCalendarDetails();
