@@ -1702,7 +1702,7 @@ async function refreshCalendar() {
 function renderCalendar() {
 
     var container =
-        document.getElementById("calendar");
+        document.getElementById("calendarGrid");
 
     var title =
         document.getElementById("calendarTitle");
