@@ -223,6 +223,7 @@ label {
     grid-template-columns: 45px 1fr 45px;
     align-items: center;
     text-align: center;
+    min-height: 50px;
 }
 
 .calendarHeader h2 {
