@@ -272,7 +272,7 @@ label {
 }
 
 .calendarDay.selected {
-    box-shadow: inset 0 0 0 2px #6b8cff;
+    box-shadow: inset 0 0 0 2px #24913e;
 }
 
 .calendarNumber {
