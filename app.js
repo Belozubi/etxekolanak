@@ -1889,7 +1889,7 @@ function renderCalendar() {
                 selectedCalendarDate = 
                     cell.getAttribute("data-date");
 
-                //renderCalendar();
+                renderCalendar();
                 renderCalendarDetails();
             }
         );
