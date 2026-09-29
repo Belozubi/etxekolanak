@@ -1602,7 +1602,7 @@ async function setDone(
 
     if (done) {
         completions[key] = true;
-        //console.log("COMPLETION GORDETZEKO:", key, completions);
+        console.log("MARKA BERRIA:", key, completions);
         await saveCompletions();
 
     } else {
