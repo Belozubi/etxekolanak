@@ -593,6 +593,65 @@ function setupAdmin() {
     }
 }
 
+async function addNewTaskToSupabase() {
+
+    var input =
+        document.getElementById("newTaskName");
+
+    var name =
+        input.value.trim();
+
+    if (!name) {
+        alert("Idatzi zereginaren izena.");
+        return;
+    }
+
+    var id =
+        "custom_" +
+        Date.now() +
+        "_" +
+        Math.random()
+            .toString(36)
+            .substring(2, 8);
+
+    const { error } = await supabaseClient
+        .from("ZereginMotak")
+        .insert({
+            id: id,
+            name: name
+        });
+
+    if (error) {
+        console.error(
+            "Errorea zeregin berria gordetzean:",
+            error
+        );
+
+        alert(
+            "Errorea zeregin berria gordetzean."
+        );
+
+        return;
+    }
+
+    TASKS.push({
+        id: id,
+        name: name
+    });
+
+    input.value = "";
+
+    renderTaskSelect();
+
+    document.getElementById(
+        "taskSelect"
+    ).value = id;
+
+    alert(
+        "Zeregin berria sortu da."
+    );
+}
+
 function renderTaskSelect() {
 
     var select =
