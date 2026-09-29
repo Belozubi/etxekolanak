@@ -278,6 +278,10 @@ async function saveAssignments() {
 async function saveCompletions() {
 
     console.log("saveCompletions HASI DA:", completions);
+
+    console.log("COMPLETIONS MOTA:", typeof completions);
+    console.log("COMPLETIONS NULL DA?:", completions === null);
+    console.log("COMPLETIONS GAKOAK:", Object.keys(completions));
     
     for (var key in completions) {
         if (!completions[key]) {
