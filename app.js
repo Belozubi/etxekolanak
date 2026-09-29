@@ -284,8 +284,10 @@ async function saveCompletions() {
             continue;
         }
 
-        var parts = key.split("|");
-
+       var parts = key.split("|");
+        
+        console.log("GAKOA PROZESATZEN:", key);
+    
         var date = parts[0];
         var user = parts[1];
         var taskId = parts[2];
