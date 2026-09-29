@@ -581,6 +581,16 @@ function setupAdmin() {
             deleteAllSelectedTaskAssignments
         );
     }
+
+    var addNewTask =
+    document.getElementById("addNewTask");
+
+    if (addNewTask) {
+    addNewTask.addEventListener(
+        "click",
+        addNewTaskToSupabase
+    );
+    }
 }
 
 function renderTaskSelect() {
