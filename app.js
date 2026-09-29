@@ -1567,7 +1567,10 @@ async function setDone(
         completions[key] = true;
         console.log("MARKA BERRIA:", key, completions);
         console.log("SAVE AURRETIK:", Object.keys(completions));
-        await saveCompletions();
+        await saveCompletions(
+            taskId,
+            user,
+            date);
         console.log("SAVE ONDOREN:", Object.keys(completions));
 
     } else {
