@@ -1609,7 +1609,9 @@ async function setDone(
     if (done) {
         completions[key] = true;
         console.log("MARKA BERRIA:", key, completions);
+        console.log("SAVE AURRETIK:", Object.keys(completions));
         await saveCompletions();
+        console.log("SAVE ONDOREN:", Object.keys(completions));
 
     } else {
         delete completions[key];
