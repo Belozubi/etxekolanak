@@ -348,3 +348,23 @@ label {
         font-size: 9px;
     }
 }
+
+.newTaskRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.newTaskRow input {
+    flex: 1;
+}
+
+.addTaskButton {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
