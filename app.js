@@ -1591,6 +1591,8 @@ async function setDone(
     done
 ) {
 
+    console.log("setDone DEITU DA:", taskId, user, done);
+    
     var key =
         completionKey(
             taskId,
