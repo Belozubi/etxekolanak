@@ -360,7 +360,9 @@ label {
 }
 
 .addTaskButton {
-    width: 42px;
+    width: 42px !important;
+    min-width: 42px;
+    max-width: 42px;
     height: 42px;
     padding: 0;
     font-size: 22px;
