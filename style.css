@@ -360,20 +360,25 @@ label {
 }
 
 .addTaskButton {
-    width: 36px !important;
-    min-width: 36px !important;
-    max-width: 36px !important;
-    height: 36px;
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    height: 34px;
+    margin: 0;
     padding: 0 !important;
-    margin-left: 4px;
-    margin-right: 4px;
-    font-size: 20px;
-    background-color: #888;
+
+    background: #888;
     color: white;
+
     border: none;
-    border-radius: 6px;
+    border-radius: 7px;
+
+    font-size: 20px;
+    line-height: 1;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+
+    flex: 0 0 34px;
 }
