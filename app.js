@@ -35,6 +35,8 @@ var TASKS = [
     { id: "ogia_erosi", name: "Ogia erosi" }
 ];
 
+var tasksLoadedFromSupabase = false;
+
 var STORAGE_ASSIGNMENTS = "etxekoLanakAssignments";
 var STORAGE_COMPLETIONS = "etxekoLanakCompletions";
 var STORAGE_USER = "etxekoLanakCurrentUser";
@@ -53,6 +55,7 @@ var selectedCalendarDate = null;
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", async function () {
+    await loadTaskTypes();
     await loadData();
     loadUser();
 
@@ -157,6 +160,40 @@ function setupRealtime() {
         completions = {};
     }
 } */
+
+async function loadTaskTypes() {
+
+    const { data, error } = await supabaseClient
+        .from("ZereginMotak")
+        .select("*")
+        .order("name");
+
+    if (error) {
+        console.error(
+            "Errorea ZereginMotak kargatzean:",
+            error
+        );
+        return;
+    }
+
+    TASKS.length = 0;
+
+    data.forEach(function (row) {
+
+        TASKS.push({
+            id: row.id,
+            name: row.name
+        });
+
+    });
+
+    tasksLoadedFromSupabase = true;
+
+    console.log(
+        "Zeregin motak kargatuta:",
+        TASKS
+    );
+}
 
 async function loadData() {
     try {
