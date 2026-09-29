@@ -276,6 +276,9 @@ async function saveAssignments() {
 } */
 
 async function saveCompletions() {
+
+    console.log("saveCompletions HASI DA:", completions);
+    
     for (var key in completions) {
         if (!completions[key]) {
             continue;
