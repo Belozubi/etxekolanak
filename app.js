@@ -275,81 +275,38 @@ async function saveAssignments() {
     );
 } */
 
-async function saveCompletions() {
+async function saveCompletions(taskId, user, date) {
 
-    console.log("saveCompletions HASI DA:", completions);
+    var dateValue = dateKey(date);
 
-    console.log("COMPLETIONS MOTA:", typeof completions);
-    console.log("COMPLETIONS NULL DA?:", completions === null);
-    console.log("COMPLETIONS GAKOAK:", Object.keys(completions));
-    
-    for (var key in completions) {
-        if (!completions[key]) {
-            continue;
-        }
-
-       var parts = key.split("|");
-        
-        console.log("GAKOA PROZESATZEN:", key);
-    
-        var date = parts[0];
-        var user = parts[1];
-        var taskId = parts[2];
-
-        const { data: existing, error: searchError } =
-            await supabaseClient
-                .from("Betetakoak")
-                .select("id")
-                .eq("task_id", taskId)
-                .eq("user", user)
-                .eq("date", date)
-                .maybeSingle();
-
-        if (searchError) {
-            console.error(
-                "Errorea Betetakoak bilatzean:",
-                searchError
-            );
-            continue;
-        }
-
-        if (existing) {
-            const { error: updateError } =
-                await supabaseClient
-                    .from("Betetakoak")
-                    .update({ done: true })
-                    .eq("id", existing.id);
-
-            if (updateError) {
-                console.error(
-                    "Errorea Betetakoak eguneratzean:",
-                    updateError
-                );
+    const { error } = await supabaseClient
+        .from("Betetakoak")
+        .upsert(
+            {
+                task_id: taskId,
+                user: user,
+                date: dateValue,
+                done: true
+            },
+            {
+                onConflict: "task_id,user,date"
             }
-        } else {
+        );
 
-            console.log("INSERT EGITERA NOA:", taskId, user, date);
-
-            const { error: insertError } =
-                await supabaseClient
-                    .from("Betetakoak")
-                    .insert({
-                        task_id: taskId,
-                        user: user,
-                        date: date,
-                        done: true
-                    });
-
-            if (insertError) {
-                console.error(
-                    "Errorea Betetakoak sortzean:",
-                    insertError
-                );
-            }
-        }
+    if (error) {
+        console.error(
+            "Errorea Betetakoak gordetzean:",
+            error
+        );
+    } else {
+        console.log(
+            "BETETA GORDE DA:",
+            taskId,
+            user,
+            dateValue
+        );
     }
 }
-
 function loadUser() {
     var savedUser =
         localStorage.getItem(STORAGE_USER);
