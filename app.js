@@ -103,6 +103,11 @@ function setupRealtime() {
                 table: "Betetakoak"
             },
             async function () {
+
+                await new Promise(function (resolve) {
+                    setTimeout(resolve, 500);
+                });
+
                 await loadData();
                 renderToday();
                 renderCalendar();
